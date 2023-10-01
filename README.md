@@ -32,8 +32,8 @@ Warunki użycia repozytorium
 
 3) Sciągnięcie obrazów docker i uruchomienie kontenerów tych obrazów
 
-     + przejdź  do folderu streaming-with-UM-Warszawa-Kafka-Cassandra (folder gdzie jest ściągnięte repozytorium)
-   	  np. cd streaming-with-UM-Warszawa-Kafka-Cassandra (możesz użyć narzędzia cmd)
+     + przejdź  do folderu streaming-UM-Warszawa-Kafka-Cassandra (folder gdzie jest ściągnięte repozytorium)
+   	  np. cd streaming-UM-Warszawa-Kafka-Cassandra (możesz użyć narzędzia cmd)
    
      + wpisz w cmd polecenie: docker-compose up -d (pobranie obrazów Kafki, Cassandry, Zookeeper i uruchomienie w tle kontenerów)
    
