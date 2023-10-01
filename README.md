@@ -20,14 +20,15 @@ Warunki użycia repozytorium
 
 1) Instalacja Docker Desktop (jeśli nie posiadasz)
    
-3) Sklonowanie repozytorium:
+2) Sklonowanie repozytorium:
     https://github.com/StaszekKon/streaming-UM-Warszawa-Kafka-Cassandra.git
 
-4) Sciągnięcie obrazów docker i uruchomienie kontenerów tych obrazów
+3) Sciągnięcie obrazów docker i uruchomienie kontenerów tych obrazów
+
+   	 a) przejdź  do folderu streaming-with-UM-Warszawa-Kafka (folder gdzie jest ściągnięte repozytorium)
+   	  np. cd streaming-with-UM-Warszawa-Kafka (możesz użyć narzędzia cmd)
    
-	a) przejdź  do folderu streaming-with-UM-Warszawa-Kafka (folder gdzie jest ściągnięte repozytorium)
-   	   np. cd streaming-with-UM-Warszawa-Kafka (możesz użyć narzędzia cmd)
-    b) wpisz w cmd polecenie: docker-compose up -d (pobranie obrazów Kafki, Cassandry, Zookeeper i uruchomienie w tle kontenerów)
+     b) wpisz w cmd polecenie: docker-compose up -d (pobranie obrazów Kafki, Cassandry, Zookeeper i uruchomienie w tle kontenerów)
    
 5) Utworzonie przestrzeni kluczy i tabeli bazy danych Cassandra.
    
@@ -56,7 +57,7 @@ Warunki użycia repozytorium
 
     		- python consumer.py
     
-8) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje pojazdów komunikacji miejskiej:
+7) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje pojazdów komunikacji miejskiej:
    
   	  a) w oknie terminala cmd wchodzimy ineraktywnie do  kontenera Cassandry poprzez polecenie:
 
