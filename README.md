@@ -15,17 +15,23 @@ Wszystkie aplikacje uruchamiane są w kontenerach Docker. Dane przesyłane są n
 Warunki użycia repozytorium
 
 1) Instalacja Docker Desktop (jeśli nie posiadasz)
-2) Sklonowanie repozytorium:
+   
+3) Sklonowanie repozytorium:
     https://github.com/StaszekKon/streaming-with-UM-Warszawa-Kafka.git
 
-3) Sciągnięcie obrazów docker i uruchomienie kontenerów tych obrazów
-   a) przejdź  do folderu streaming-with-UM-Warszawa-Kafka (folder gdzie jest ściągnięte repozytorium)
-   np. cd streaming-with-UM-Warszawa-Kafka (możesz użyć narzędzia cmd)
-   b) wpisz w cmd polecenie: docker-compose up -d (pobranie obrazów Kafki, Cassandry, Zookeeper i uruchomienie w tle kontenerów)
-4)  Utworzonie przestrzeni kluczy i tabeli bazy danych Cassandra.
-   a) docker exec -it <container_name> cqlsh (po uruchomieniu polecenia docker ps zobaczymy uruchomione kontenery - ich nazwy)
-   b) CREATE KEYSPACE keyspaces WITH REPLICATION={'class': 'SimpleStrategy', 'replication_factor': 1};
-   c)   CREATE TABLE IF NOT EXISTS keyspaces.um_Warsaw_bus_tram (
+4) Sciągnięcie obrazów docker i uruchomienie kontenerów tych obrazów
+   
+	a) przejdź  do folderu streaming-with-UM-Warszawa-Kafka (folder gdzie jest ściągnięte repozytorium)
+   	   np. cd streaming-with-UM-Warszawa-Kafka (możesz użyć narzędzia cmd)
+    b) wpisz w cmd polecenie: docker-compose up -d (pobranie obrazów Kafki, Cassandry, Zookeeper i uruchomienie w tle kontenerów)
+   
+5) Utworzonie przestrzeni kluczy i tabeli bazy danych Cassandra.
+   
+   	a) docker exec -it <container_name> cqlsh (po uruchomieniu polecenia docker ps zobaczymy uruchomione kontenery - ich nazwy)
+   
+	b) CREATE KEYSPACE keyspaces WITH REPLICATION={'class': 'SimpleStrategy', 'replication_factor': 1};
+
+   	c)  CREATE TABLE IF NOT EXISTS keyspaces.um_Warsaw_bus_tram (
         uuiid UUID,
         Lines TEXT,
         Lon float,
@@ -34,13 +40,23 @@ Warunki użycia repozytorium
         Lat float, 
         Brigade TEXT, 
         PRIMARY KEY(uuiid)); 
-5)  Uruchomienie aplikacji do przesyłania strumieniowego w języku Python - interfejs API, który udostępnia w czasie rzeczywistym lokalizacje pojazdów komunikacji miejskiej m. st. Warszawy
-   a) uruchom w kolejnym terminalu np. wierszu poleceń cmd interfejs API producenta:
-       - python producent.py
-    b) uruchom w następnym oknie cmd interfejs API dla konsumenta:
-        - python consumer.py
-6) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje pojazdów komunikacji miejskiej:
-   a) w oknie terminala cmd wchodzimy ineraktywnie do  kontenera Cassandry poprzez polecenie:
-       -docker exec -it <container_name> cqlsh
-   b) wykonujemy polecenie: select * from keyspaces.um_Warsaw_bus_tram;
+        
+6)  Uruchomienie aplikacji do przesyłania strumieniowego w języku Python - interfejs API, który udostępnia w czasie rzeczywistym lokalizacje pojazdów komunikacji         miejskiej m. st. Warszawy
+   
+      a) uruchom w kolejnym terminalu np. wierszu poleceń cmd interfejs API producenta (skrypt w Pythonie ściąga dane z API i wrzuca na Apache Kafka):
+
+
+    		- python producent.py
+    
+      b) uruchom w następnym oknie cmd interfejs API dla konsumenta:
+
+    		- python consumer.py
+    
+8) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje pojazdów komunikacji miejskiej:
+   
+  	  a) w oknie terminala cmd wchodzimy ineraktywnie do  kontenera Cassandry poprzez polecenie:
+
+      		- docker exec -it <container_name> cqlsh
+ 
+      b) wykonujemy polecenie: select * from keyspaces.um_Warsaw_bus_tram;
       
