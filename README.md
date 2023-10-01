@@ -64,7 +64,7 @@ Warunki użycia repozytorium
     
 6) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje pojazdów komunikacji miejskiej:
    
-      +	 w oknie terminala cmd wchodzimy ineraktywnie do  kontenera Cassandry poprzez polecenie:
+      +	 w oknie terminala cmd wchodzimy interaktywnie do  kontenera Cassandry poprzez polecenie:
 
       	 docker exec -it <container_name> cqlsh
  
