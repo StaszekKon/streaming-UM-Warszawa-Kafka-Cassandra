@@ -1,9 +1,9 @@
-# Streaming danych lokalizacji on-line pojazdów komunikacji miejskiej Urzędu miasta Warszawa za pomocą Apache Kafka i załadowanie danych do bazy danych Cassandra
+# Streaming danych lokalizacji on-line pojazdów komunikacji miejskiej Urzędu miasta Warszawa za pomocą ekosystemu Kafka i załadowanie danych do bazy danych Cassandra
 Otwarte dane - czyli dane po warszawsku
 
 DataFlow
 
-Publiczny interfejs API (https://api.um.warszawa.pl/#) udostępnia dane  w czasie rzeczywistym (pobranie danych warszawskich przez skrypt Pythona) ---> wrzucenie danych (publikowanie danych do danego tematu) strumieniowo do   Apache Kafka ----> załadowanie danych przez konsumenta do bazy danych Cassandra   
+Publiczny interfejs API (https://api.um.warszawa.pl/#) udostępnia dane  w czasie rzeczywistym (pobranie danych warszawskich przez skrypt Pythona) ---> wrzucenie danych (publikowanie danych do danego tematu) strumieniowo do  Kafka ----> załadowanie danych przez konsumenta do bazy danych Cassandra   
 
 
 
@@ -55,7 +55,7 @@ Warunki użycia repozytorium
         
 5)  Uruchomienie aplikacji do przesyłania strumieniowego w języku Python - interfejs API, który udostępnia w czasie rzeczywistym lokalizacje on-line pojazdów komunikacji miejskiej m. st. Warszawy
    
-      + uruchom w kolejnym terminalu np. wierszu poleceń cmd interfejs API producenta (skrypt w Pythonie ściąga dane z API i wrzuca na Apache Kafka):
+      + uruchom w kolejnym terminalu np. wierszu poleceń cmd interfejs API producenta (skrypt w Pythonie ściąga dane z API i wrzuca na platformę Kafka):
 
     	python producent.py
     
