@@ -3,6 +3,7 @@ from kafka import KafkaConsumer
 from cassandra.cluster import Cluster
 from uuid import uuid1
 #https://docs.datastax.com/en/cql-oss/3.3/cql/cql_reference/cqlDropTable.html
+#https://kafka.apache.org/24/documentation.html
 if __name__ == '__main__':
     consumer = KafkaConsumer(
        'bus-input-api',
