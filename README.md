@@ -1,4 +1,4 @@
-# Streaming danych lokalizacji pojazdów komunikacji miejskiej Urzędu miasta Warszawa za pomocą Apache Kafka i załadowanie danych do bazy danych Cassandra
+# Streaming danych lokalizacji on-line pojazdów komunikacji miejskiej Urzędu miasta Warszawa za pomocą Apache Kafka i załadowanie danych do bazy danych Cassandra
 Otwarte dane - czyli dane po warszawsku
 
 DataFlow
@@ -14,13 +14,14 @@ Dane użyte w tym rezpozytorium, które są przesyłane strumieniowo w czasie rz
 
 Data wytworzenia oraz pozyskania informacji publicznej z serwisu https://api.um.warszawa.pl/# 30.09.2023.
 
-Wszystkie aplikacje uruchamiane są w kontenerach Docker. Dane przesyłane są na  żywo strumieniowo - lokalizacje	pojazdów	komunikacji	miejskiej m.st. Warszawy  z interfejsu API (https://api.um.warszawa.pl/api/action/busestrams_get/).
+Wszystkie aplikacje uruchamiane są w kontenerach Docker. Dane przesyłane są na  żywo strumieniowo - lokalizacje on-line	pojazdów	komunikacji	miejskiej m.st. Warszawy  z interfejsu API (https://api.um.warszawa.pl/api/action/busestrams_get/).
 
 + Lat - współrzędna szerokości geograficznej w układzie WGS84(EPSG:4326)
 + Lon - współrzędna długości geograficznej w układzie WGS84(EPSG:4326)
 + Time - czas wysłania sygnału GPS
 + Lines - numer linii autobusowej lub tramwajowej
 + Brigade - numer brygady pojazdu
++ resource_id	=	f2e5503e-927d-4ad3-9500-4ab9e55deb59 (identyfikator zasobu)
 
 Warunki użycia repozytorium
 
@@ -52,7 +53,7 @@ Warunki użycia repozytorium
         Brigade TEXT, 
         PRIMARY KEY(uuiid)); 
         
-5)  Uruchomienie aplikacji do przesyłania strumieniowego w języku Python - interfejs API, który udostępnia w czasie rzeczywistym lokalizacje pojazdów komunikacji         miejskiej m. st. Warszawy
+5)  Uruchomienie aplikacji do przesyłania strumieniowego w języku Python - interfejs API, który udostępnia w czasie rzeczywistym lokalizacje on-line pojazdów komunikacji miejskiej m. st. Warszawy
    
       + uruchom w kolejnym terminalu np. wierszu poleceń cmd interfejs API producenta (skrypt w Pythonie ściąga dane z API i wrzuca na Apache Kafka):
 
@@ -62,7 +63,7 @@ Warunki użycia repozytorium
 
         python consumer.py
     
-6) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje pojazdów komunikacji miejskiej:
+6) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje on-line pojazdów komunikacji miejskiej m.st. Warszawa:
    
       +	 w oknie terminala cmd wchodzimy interaktywnie do  kontenera Cassandry poprzez polecenie:
 
