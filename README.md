@@ -3,7 +3,7 @@ Otwarte dane - czyli dane po warszawsku
 
 DataFlow
 
-Publiczny interfejs API danych w czasie rzeczywistym (pobranie danych warszawskich przez skrypt Pythona) ---> wrzucenie danych (publikowanie danych do danego tematu) strumieniowo do   Apache Kafka ----> załadowanie danych przez konsumenta do bazy danych Cassandra   
+Publiczny interfejs API (https://api.um.warszawa.pl/#) udostępnia dane  w czasie rzeczywistym (pobranie danych warszawskich przez skrypt Pythona) ---> wrzucenie danych (publikowanie danych do danego tematu) strumieniowo do   Apache Kafka ----> załadowanie danych przez konsumenta do bazy danych Cassandra   
 
 
 
