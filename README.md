@@ -21,7 +21,7 @@ Warunki użycia repozytorium
 1) Instalacja Docker Desktop (jeśli nie posiadasz)
    
 3) Sklonowanie repozytorium:
-    https://github.com/StaszekKon/streaming-with-UM-Warszawa-Kafka.git
+    https://github.com/StaszekKon/streaming-UM-Warszawa-Kafka-Cassandra.git
 
 4) Sciągnięcie obrazów docker i uruchomienie kontenerów tych obrazów
    
