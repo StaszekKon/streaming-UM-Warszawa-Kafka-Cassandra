@@ -1,4 +1,4 @@
-# streaming-with-UM-Warszawa-Kafka
+# Streaming-with-UM-Warszawa-Kafka
 Otwarte dane - czyli dane po warszawsku
 # Warunki korzystania z danych.
 Żródło danych: Miasto Stołeczne Warszawa - serwis https://api.um.warszawa.pl/#
@@ -35,3 +35,12 @@ Warunki użycia repozytorium
         Brigade TEXT, 
         PRIMARY KEY(uuiid)); 
 5)  Uruchomienie aplikacji do przesyłania strumieniowego w języku Python - interfejs API, który udostępnia w czasie rzeczywistym lokalizacje pojazdów komunikacji miejskiej m. st. Warszawy
+   a) uruchom w kolejnym terminalu np. wierszu poleceń cmd interfejs API producenta:
+       - python producent.py
+    b) uruchom w następnym oknie cmd interfejs API dla konsumenta:
+        - python consumer.py
+6) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje pojazdów komunikacji miejskiej:
+   a) w oknie terminala cmd wchodzimy ineraktywnie do  kontenera Cassandry poprzez polecenie:
+       -docker exec -it <container_name> cqlsh
+   b) wykonujemy polecenie: select * from keyspaces.um_Warsaw_bus_tram;
+      
