@@ -1,13 +1,13 @@
 # Streaming danych lokalizacji on-line pojazdów komunikacji miejskiej Urzędu miasta Warszawa za pomocą ekosystemu Kafka i załadowanie danych do bazy danych Cassandra
 Otwarte dane - czyli dane po warszawsku
 
-DataFlow
+### DataFlow
 
 Publiczny interfejs API (https://api.um.warszawa.pl/#) udostępnia dane  w czasie rzeczywistym (pobranie danych warszawskich przez skrypt Pythona) ---> wrzucenie danych (publikowanie danych do danego tematu) strumieniowo do  Kafka ----> załadowanie danych przez konsumenta do bazy danych Cassandra   
 
 
 
-# Warunki korzystania z danych.
+### Warunki korzystania z danych.
 Żródło danych: Miasto Stołeczne Warszawa - serwis https://api.um.warszawa.pl/#
 
 Dane użyte w tym rezpozytorium, które są przesyłane strumieniowo w czasie rzeczywistym i są danymi publicznymi - materiałami urzędowymi.
@@ -23,7 +23,7 @@ Wszystkie aplikacje uruchamiane są w kontenerach Docker. Dane przesyłane są n
 + Brigade - numer brygady pojazdu
 + resource_id	=	f2e5503e-927d-4ad3-9500-4ab9e55deb59 (identyfikator zasobu)
 
-Warunki użycia repozytorium
+**Warunki użycia repozytorium**
 
 1) Instalacja Docker Desktop (jeśli nie posiadasz)
    
@@ -33,9 +33,9 @@ Warunki użycia repozytorium
 3) Sciągnięcie obrazów docker i uruchomienie kontenerów tych obrazów
 
      + przejdź  do folderu streaming-UM-Warszawa-Kafka-Cassandra (folder gdzie jest ściągnięte repozytorium)
-   	  np. cd streaming-UM-Warszawa-Kafka-Cassandra (możesz użyć narzędzia cmd)
+   	  np. <br/>**cd streaming-UM-Warszawa-Kafka-Cassandra** (możesz użyć narzędzia cmd)
    
-     + wpisz w cmd polecenie: docker-compose up -d (pobranie obrazów Kafki, Cassandry, Zookeeper i uruchomienie w tle kontenerów)
+     + wpisz w cmd polecenie: **docker-compose up -d** (pobranie obrazów Kafki, Cassandry, Zookeeper i uruchomienie w tle kontenerów)
    
 4) Utworzonie przestrzeni kluczy i tabeli bazy danych Cassandra.
    
@@ -57,17 +57,17 @@ Warunki użycia repozytorium
    
       + uruchom w kolejnym terminalu np. wierszu poleceń cmd interfejs API producenta (skrypt w Pythonie ściąga dane z API i wrzuca na platformę Kafka):
 
-    	python producent.py
+    	**python producent.py**
     
       + uruchom w następnym oknie cmd interfejs API dla konsumenta:
 
-        python consumer.py
+        **python consumer.py**
     
 6) Sprawdzenie w bazie danych Cassandra czy zostały załadowane dane - lokalizacje on-line pojazdów komunikacji miejskiej m.st. Warszawa:
    
       +	 w oknie terminala cmd wchodzimy interaktywnie do  kontenera Cassandry poprzez polecenie:
 
-      	 docker exec -it <container_name> cqlsh
+      	 **docker exec -it <container_name> cqlsh**
  
-      + wykonujemy polecenie: select * from keyspaces.um_Warsaw_bus_tram;
+      + wykonujemy polecenie: **select * from keyspaces.um_Warsaw_bus_tram;**
       
