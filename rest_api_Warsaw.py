@@ -20,3 +20,8 @@ def data_from_um_Warsaw_api():
     response_from_api = requests.get(url = url, params = bus_params)
     json_data = json.loads(response_from_api.text)
     return json_data
+    
+    
+def test_data_from_um_Warsaw_api():
+    json_data = data_from_um_Warsaw_api()
+    assert isinstance(json_data, dict)
